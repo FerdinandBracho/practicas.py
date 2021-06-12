@@ -1,22 +1,66 @@
+### 1 Crear dos variables que representen dos productos, asignarle un precio 
+# sin iva
 
 
-# for en listas
-for i in range(100):
+### 2 Aplicarle iva (16% adicional del precio) por pieza de cada uno de los productos
+iva = 
+precio_sin_iva =  p1 + p2
+precio_iva =  
+impuesto = 
+
+
+### 3 Calcular el precio total de una pieza por producto
+
+
+### 4 Calcular el precio total de 4 pieza del producto 1 y 5 del producto 2
+
+
+### 5 Aplicar 2 operaciones con entero
+
+
+### 6 Aplicar 2 operaciones con flotantes
+
+
+### 7 Aplicar 2 operaciones con strings
+
+
+### for en listas
+for i in range(5,100):
     print(i)
 
 lista_con_for = [i * 100 for i in range(100)]
-# if en listas
+lista_con_for
+
+lista_con_for = [str(i) for i in range(100)]
+lista_con_for
+
+lista_con_for = [str(i) for i in [10, 11, 12]]
+lista_con_for
+### if en listas
 i = 100
 # para obtener los números pares
 [i for i in range(100) if i % 2 == 0]
 # para obtener los números impares
 # not, !=
 [i for i in range(100) if not i % 2 == 0]
-[i for i in range(100) if i % 2 != 0]
+[str(i) for i in range(100) if i % 2 != 0]
+[1 for i in range(100) if i % 2 != 0]
 
 
-# else en listas
-x = [i if i % 2 == 0 else "No es par" for i in range(100)]
+
+### else en listas
+x = [i if i % 2 == 0 else "No es par" for i in range(100) ]
+x
+#Usando la sintaxis de la lista anterior filtrar valores menos a 80
+x = [i if i % 2 == 0 else "No es par" for i in range(100) if i < 80]
+x = [i if i % 2 == 0 else "No es par" for i in range(100) if 2 < 3]
+x
+
+
+#lo ideal es x = [i if i % 2 == 0 else "No es par" for i in range(80) ]
+
+                                            
+x
 
 # for usando listas
 # a lista anterior sumarle 1 a los números enteros
@@ -41,7 +85,7 @@ x[0] = "No es par"  # Se equivocaron y en un par pusieron texto!!!!!
 
 # [for variable_que_recorre_el_for in objeto_iterable if condicion depende variable_que_recorre_el_for]
 
-activado = False
+activado = True
 x = 1 if activado else 0
 x
 
