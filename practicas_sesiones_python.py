@@ -342,4 +342,3 @@ carritest.agregar_producto(produtest,1)
 carritest.limpiar_carrito()
 carritest.mostras_contenido()
 
-
