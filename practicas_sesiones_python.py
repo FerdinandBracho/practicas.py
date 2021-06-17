@@ -242,3 +242,102 @@ def sum_recursiva(n):
         return(sum_recursiva(n - 1) + n)
 
 sum_recursiva(9)
+
+# !Funcion que reciba dos listas, una con precios de productos, otra con cuantosse compraron, procesar lo necesario para regrar total y sibtotal (+iva 16%)
+def totales(precios_fun_sin_iva, cantidad_fun_productos):
+    if (len(precios_fun_sin_iva) != len(cantidad_fun_productos)):
+        print('Los datos estan incompletos, porfavor revisa las entradas...')
+        return
+    subtotal = 0
+    total = 0
+    impuesto = 0
+    iva = .16
+    for precios, cantidad in zip(precios_fun_sin_iva, cantidad_fun_productos):
+        subtotal_aux = precios * cantidad
+        subtotal += subtotal_aux
+    impuesto = subtotal * iva
+    impuesto = '{:.1f}'.format(impuesto)
+    total += subtotal + float(impuesto)
+    print(f'El precio sin iva de los productos es ${subtotal}, el impuesto agregado es de ${impuesto} dando un total de: ${total}')
+
+totales([10,20], [1,3])
+
+# ? Practicas sesion 8
+# !Crar un objeto de tu comida favorita (con dos atributos y con dos metodos)
+class FavoriteMeal(object):
+    estado = 'Listo'
+    temperatura = 'Caliente'
+    def comer(self):
+        print('Estas comiendo tu comida')
+    def guardar(self):
+        print('Guardando la comida')
+
+asado = FavoriteMeal()
+asado.comer()
+asado.guardar()
+
+# !usar self.i como contador
+class Acumulador(object):
+    def __init__(self):
+        self.actual = 0
+    def sumar_una_unidad(self):
+        self.actual += 1
+    def resta_una_unidad(self):
+        self.actual -= 1
+    def mostar_acumulador(self):
+        print(self.actual)
+
+i = Acumulador(2)
+i.mostar_acumulador()
+i.sumar_una_unidad()
+i.resta_una_unidad()
+
+# ! Ejercicio en clase crea el objeto producto, 
+# ! a partir de diferentes metodos crea las siguientes acciones:
+# ! Definir un precio sin iva inicial del producto (Constructor) 
+# ! Modificar el precio actual del producto 
+# ! Comprar el MISMO producto y agregar al carrito 
+# ! Mostrar precio con iva del producto 
+# ! Mostrar el impuesto, subtotal y total de la cantidad de productos agregados al carrito
+
+class Producto(object):
+    def __init__(self, nombre, precio = 0):
+        self.nombre = nombre
+        self.precio_incial = precio
+        self.calcular()
+
+    def cambiar_precio(self, nuevo_precio):
+        self.precio_incial = nuevo_precio
+        self.calcular()
+
+    def calcular(self):
+        self.impuesto = self.precio_incial * 0.16
+        self.precio_iva = self.precio_incial + self.impuesto
+
+produtest = Producto('cel', 20)
+produtest.nombre
+
+class Carrito(object):
+    def __init__(self):
+        self.precio_total = 0
+        self.productos_todos = []
+
+    def agregar_producto(self, producto, cantidad):
+        self.precio_total += producto.precio_iva * cantidad
+        print(self.precio_total)
+        self.productos_todos.append(producto.nombre)
+
+    def limpiar_carrito(self):
+        self.productos_todos = []
+        self.precio_total = 0
+        print(self.precio_total)
+
+    def mostras_contenido(self):
+        print(self.productos_todos)
+        print(self.precio_total)
+    
+
+carritest = Carrito()
+carritest.agregar_producto(produtest,1)
+carritest.limpiar_carrito()
+carritest.mostras_contenido()
