@@ -341,3 +341,100 @@ carritest = Carrito()
 carritest.agregar_producto(produtest,1)
 carritest.limpiar_carrito()
 carritest.mostras_contenido()
+
+# ? Practicas sesion 9
+# ! Crear la clase Hogar, crearle por lo menos 3 métodos y atributos, considera adicionalmente el atributo número de cuartos y el de superficie en M2
+# ! Crearle por lo menos 3 métodos y atributos
+# ! Utilizar __add__ en hogar que sume los cuartos de una casa o un departamento con otra casa o departamento.
+# ! Utilizar __len__ para devolver las dimensiones de la casa o depa
+
+
+class Hogar(object):
+    def __init__(self, cuartos, m2):
+        self.cuartos = cuartos
+        self.m2 = m2
+        self.ventanas = cuartos * 2
+    
+    def __add__(self, segundo):
+        if isinstance(segundo, Hogar):
+            return(self.cuartos + segundo.hogar)
+
+    def __len__(self):
+            return(self.m2)
+
+dto_roma = Hogar(2, 40)
+dto_escandon = Hogar(3, 70)
+cuartos_totales = dto_roma + dto_escandon
+print(cuartos_totales)
+len(dto_roma)
+
+# ! Video juegos
+# ! Vida y Ataques
+import random
+
+class Guerrero():
+    def __init__(self, nombre, vida, ataque):
+        self.nombre = nombre
+        self.vida = vida
+        self.ataque = ataque
+    
+    def __sub__(self, contrincante):
+        case = random.randint(0, 9)
+        if case <= 6:
+            contrincante.recibir_ataque(self.ataque)
+            print('Ohh que golpe!')
+        if case > 6:
+            print('Ohhh tu contrincante ha esquivado el ataque')
+    
+    def atacar_cuerpo_a_cuerpo(self, contrincante):
+        case = random.randint(0, 9)
+        if case <= 6:
+            contrincante.recibir_ataque(self.ataque)
+            print('Ohh que golpe!')
+        if case > 6:
+            print('Ohhh tu contrincante ha esquivado el ataque')
+
+    def recibir_ataque(self, ataque):
+        self.vida -= ataque
+        if (self.vida <= 0):
+            print(f'El jugador {self.nombre} ha sido derrotado')
+        else:
+            print(f'Te queda de vida {self.vida}')
+
+
+class Arquero():
+    def __init__(self, nombre, vida, ataque):
+        self.nombre = nombre
+        self.vida = vida
+        self.ataque = ataque
+
+    def __sub__ (self, contrincante):
+        case = random.randint(0, 9)
+        if case <= 6:
+            contrincante.recibir_ataque(self.ataque)
+            print('Precision!!!')
+        if case > 6:
+            print('Ohhh tu contrincante ha esquivado el ataque')
+    
+    def atacar_a_distancia(self, contrincante):
+        case = random.randint(0, 9)
+        if case <= 6:
+            contrincante.recibir_ataque(self.ataque)
+            print('Precision!!!')
+        if case > 6:
+            print('Ohhh tu contrincante ha esquivado el ataque')
+
+    def recibir_ataque(self, ataque):
+        self.vida -= ataque
+        if (self.vida <= 0):
+            print(f'El jugador {self.nombre} ha sido derrotado')
+        else:
+            print(f'Te queda de vida {self.vida}')
+
+
+beast = Guerrero('beast', 500, 50)
+legolas = Arquero("legolas", 400,150)
+
+beast.atacar_cuerpo_a_cuerpo(legolas)
+legolas.atacar_a_distancia(beast)
+legolas - beast
