@@ -342,6 +342,7 @@ carritest.agregar_producto(produtest,1)
 carritest.limpiar_carrito()
 carritest.mostras_contenido()
 
+<<<<<<< HEAD
 # ? Practicas sesion 9
 # ! Crear la clase Hogar, crearle por lo menos 3 métodos y atributos, considera adicionalmente el atributo número de cuartos y el de superficie en M2
 # ! Crearle por lo menos 3 métodos y atributos
@@ -473,4 +474,8 @@ legolas - beast
 # !1 maruchan
 # !1 maruchan
 # !Imprime el saldo actual de la tarjeta y el stock de botana y mercancia
+=======
+
+
+>>>>>>> d43a297162262a1cd9f8c8bf1608239e945f0e58
 
