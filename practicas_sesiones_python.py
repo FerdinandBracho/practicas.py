@@ -401,7 +401,6 @@ class Guerrero():
         else:
             print(f'Te queda de vida {self.vida}')
 
-
 class Arquero():
     def __init__(self, nombre, vida, ataque):
         self.nombre = nombre
@@ -438,3 +437,40 @@ legolas = Arquero("legolas", 400,150)
 beast.atacar_cuerpo_a_cuerpo(legolas)
 legolas.atacar_a_distancia(beast)
 legolas - beast
+
+# ?Practicas sesion 10
+# !Crear la clase Mercancia
+# ! con los siguientes atributos:
+# ! precio
+# ! nombre
+# ! descuento
+# ! stock
+# ! con los siguientes métodos
+# ! llevarse producto decrementa en una unidad el atributo stock
+# ! Crea una subclase de Mercancia que se llame botanas
+# ! Agregar los siguientes atributos:
+# !sabor
+# !advertencia_calorias
+# !Crea la clase Tarjetas,
+# !con los siguientes atributos:
+# !dueño
+# !saldo
+# !vigencia
+# !con los siguientes métodos
+# !compra(self, Mercancia) ### este método disminuye el saldo en la Tarjeta
+# !deposito(self) ### este método aumenta el saldo en la Tarjeta
+# !1. Crear una tarjeta con un saldo inicial de $1000, el dueño eres tú y la vigencia es al día de tu próximo cumple
+# !2 Crear una mercancia con precio de $12, nombre fritos, stock, que es el número de unidades en la tienda de 20, y 0% de descuento
+# !2 Crear una botana con precio de $12, nombre maruchan, stock, que es el número de unidades en la tienda de 20, y 0% de descuento,
+# !calorías altas y sabor chipotle
+# !Realiza las siguientes compras:
+# !1 unos fritos
+# !1 unos fritos
+# !1 maruchan
+# !depósito de nómina de $5000
+# !1 maruchan
+# !1 maruchan
+# !1 maruchan
+# !1 maruchan
+# !Imprime el saldo actual de la tarjeta y el stock de botana y mercancia
+
