@@ -342,7 +342,6 @@ carritest.agregar_producto(produtest,1)
 carritest.limpiar_carrito()
 carritest.mostras_contenido()
 
-<<<<<<< HEAD
 # ? Practicas sesion 9
 # ! Crear la clase Hogar, crearle por lo menos 3 métodos y atributos, considera adicionalmente el atributo número de cuartos y el de superficie en M2
 # ! Crearle por lo menos 3 métodos y atributos
@@ -448,10 +447,12 @@ legolas - beast
 # ! stock
 # ! con los siguientes métodos
 # ! llevarse producto decrementa en una unidad el atributo stock
+
 # ! Crea una subclase de Mercancia que se llame botanas
 # ! Agregar los siguientes atributos:
 # !sabor
 # !advertencia_calorias
+
 # !Crea la clase Tarjetas,
 # !con los siguientes atributos:
 # !dueño
@@ -460,6 +461,7 @@ legolas - beast
 # !con los siguientes métodos
 # !compra(self, Mercancia) ### este método disminuye el saldo en la Tarjeta
 # !deposito(self) ### este método aumenta el saldo en la Tarjeta
+
 # !1. Crear una tarjeta con un saldo inicial de $1000, el dueño eres tú y la vigencia es al día de tu próximo cumple
 # !2 Crear una mercancia con precio de $12, nombre fritos, stock, que es el número de unidades en la tienda de 20, y 0% de descuento
 # !2 Crear una botana con precio de $12, nombre maruchan, stock, que es el número de unidades en la tienda de 20, y 0% de descuento,
@@ -474,8 +476,86 @@ legolas - beast
 # !1 maruchan
 # !1 maruchan
 # !Imprime el saldo actual de la tarjeta y el stock de botana y mercancia
-=======
 
 
->>>>>>> d43a297162262a1cd9f8c8bf1608239e945f0e58
+class Mercancias(object):
+    def __init__(self, nombre, precio, descuento, stock):
+        self.__nombre = nombre
+        self.__precio = precio
+        self.__descuento = descuento
+        self.__stock = stock
+    
+    def tomar_producto(self):
+        self.__stock -= 1
+        self.ver_stock()
+
+    def get_precio(self):
+        return self.__precio
+
+    def set_precio_nuevo(self, precio_nuevo):
+        self.precio = precio_nuevo
+
+    def ver_stock(self):
+        print(f'El stock actual para el producto {self.__nombre} es de: {self.__stock}')
+
+    def get_nombre(self):
+        return(self.__nombre)
+
+class Botanas(Mercancias):
+    def __init__(self, nombre, precio, descuento, stock, sabor, calorias):
+        super().__init__(nombre, precio, descuento, stock)
+        self.__sabor = sabor
+        self.__calorias = calorias
+    
+class Tarjetas(object):
+    def __init__(self, dueno, saldo, vigencia):
+        self.__dueno = dueno
+        self.__saldo = saldo
+        self.__vigencia = vigencia
+        self.__historia = []
+
+    def ver_saldo(self):
+        print('Tu saldo a la fecha es de: ', self.__saldo)
+
+    def compra(self, mercancia):
+        self.__saldo -= mercancia.get_precio()
+        mercancia.tomar_producto()
+        self.ver_saldo()
+        self.__historico(mercancia)
+
+    def deposito(self, cantidad):
+        self.__saldo += cantidad
+        self.ver_saldo()
+
+    def __add__(self, cantidad_add):
+        if isinstance(cantidad_add, int):
+            self.deposito(cantidad_add)
+            self.ver_saldo()
+
+
+    def __historico(self, mercancia):
+        self.__historia.append([mercancia.get_nombre(), mercancia.get_precio()])
+
+    def get_historia(self):
+        print('Tu historial de compras: ')
+        for x in self.__historia:
+            print(x)
+
+
+
+
+tarjeta_personal1 = Tarjetas('Ferdinand Bracho', 1000, 2106)
+fritos = Mercancias('fritos', 12, 0, 20)
+maruchan = Botanas('Maruchan', 12,  0, 20, 'chipotle', 850)
+
+tarjeta_personal1.compra(fritos)
+tarjeta_personal1 + 5000
+tarjeta_personal1.compra(maruchan)
+tarjeta_personal1.ver_saldo()
+tarjeta_personal1.get_historia()
+Mercancias.ver_stock(fritos)
+maruchan.ver_stock()
+
+
+
 
